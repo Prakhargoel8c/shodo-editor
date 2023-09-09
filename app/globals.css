@@ -6,12 +6,32 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+  --stone-50: rgb(250 250 249);
+  --stone-100: rgb(245 245 244);
+  --stone-200: rgb(231 229 228);
+  --stone-300: rgb(214 211 209);
+  --stone-400: rgb(168 162 158);
+  --stone-500: rgb(120 113 108);
+  --stone-600: rgb(87 83 78);
+  --stone-700: rgb(68 64 60);
+  --stone-800: rgb(41 37 36);
+  --stone-900: rgb(28 25 23);
 }
 
 .dark-theme {
   --foreground-rgb: 255, 255, 255;
   --background-start-rgb: 0, 0, 0;
   --background-end-rgb: 0, 0, 0;
+  --stone-50: rgb(35 35 34);
+  --stone-100: rgb(41 37 36);
+  --stone-200: rgb(66 69 71);
+  --stone-300: rgb(112 118 123);
+  --stone-400: rgb(160 167 173);
+  --stone-500: rgb(193 199 204);
+  --stone-600: rgb(212 217 221);
+  --stone-700: rgb(229 232 235);
+  --stone-800: rgb(232 234 235);
+  --stone-900: rgb(240, 240, 241);
 }
 
 body {

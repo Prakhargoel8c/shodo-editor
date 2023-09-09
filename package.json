@@ -9,6 +9,15 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@radix-ui/react-popover": "^1.0.6",
+    "@tiptap/extension-link": "^2.1.8",
+    "@tiptap/extension-placeholder": "^2.1.8",
+    "@tiptap/extension-task-item": "^2.1.8",
+    "@tiptap/extension-text-style": "^2.1.8",
+    "@tiptap/pm": "^2.1.8",
+    "@tiptap/react": "^2.1.8",
+    "@tiptap/starter-kit": "^2.1.8",
+    "@tiptap/suggestion": "^2.1.8",
     "@types/node": "18.15.3",
     "@types/react": "^18.2.21",
     "@types/react-dom": "^18.2.7",
@@ -18,11 +27,13 @@
     "eslint": "^8.49.0",
     "eslint-config-next": "^13.4.19",
     "next": "^13.4.19",
+    "next-themes": "^0.2.1",
     "postcss": "^8.4.29",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "tailwind-merge": "^1.14.0",
     "tailwindcss": "^3.3.3",
+    "tailwindcss-animate": "^1.0.7",
     "typescript": "^5.2.2"
   }
 }

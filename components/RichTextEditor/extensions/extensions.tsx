@@ -6,6 +6,7 @@ import TiptapUnderline from '@tiptap/extension-underline';
 import TextStyle from '@tiptap/extension-text-style';
 import { Color } from '@tiptap/extension-color';
 import TaskList from '@tiptap/extension-task-list';
+import TaskItem from '@tiptap/extension-task-item';
 
 export const defaultExtensions = [
   StarterKit.configure({
@@ -48,5 +49,15 @@ export const defaultExtensions = [
     },
     includeChildren: true,
   }),
-  TaskList,
+  TaskList.configure({
+    HTMLAttributes: {
+      class: 'not-prose pl-2',
+    },
+  }),
+  TaskItem.configure({
+    HTMLAttributes: {
+      class: 'flex items-start my-4',
+    },
+    nested: true,
+  }),
 ];

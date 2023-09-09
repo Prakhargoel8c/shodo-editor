@@ -11,6 +11,15 @@ dependencies:
   '@tailwindcss/typography':
     specifier: ^0.5.10
     version: 0.5.10(tailwindcss@3.3.3)
+  '@tiptap/extension-color':
+    specifier: ^2.1.8
+    version: 2.1.8(@tiptap/core@2.1.8)(@tiptap/extension-text-style@2.1.8)
+  '@tiptap/extension-horizontal-rule':
+    specifier: ^2.1.8
+    version: 2.1.8(@tiptap/core@2.1.8)(@tiptap/pm@2.1.8)
+  '@tiptap/extension-image':
+    specifier: ^2.1.8
+    version: 2.1.8(@tiptap/core@2.1.8)
   '@tiptap/extension-link':
     specifier: ^2.1.8
     version: 2.1.8(@tiptap/core@2.1.8)(@tiptap/pm@2.1.8)
@@ -21,6 +30,9 @@ dependencies:
     specifier: ^2.1.8
     version: 2.1.8(@tiptap/core@2.1.8)(@tiptap/pm@2.1.8)
   '@tiptap/extension-text-style':
+    specifier: ^2.1.8
+    version: 2.1.8(@tiptap/core@2.1.8)
+  '@tiptap/extension-underline':
     specifier: ^2.1.8
     version: 2.1.8(@tiptap/core@2.1.8)
   '@tiptap/pm':
@@ -816,6 +828,16 @@ packages:
       '@tiptap/core': 2.1.8(@tiptap/pm@2.1.8)
     dev: false
 
+  /@tiptap/extension-color@2.1.8(@tiptap/core@2.1.8)(@tiptap/extension-text-style@2.1.8):
+    resolution: {integrity: sha512-eAfJhUbqqNFTdgWraLcg6O1d7YWj6Ivga0YVfhnBpWmZiS8JXAmgOHq9b7sRrDOMdEp6D2njDBEIWpltHNmi1A==}
+    peerDependencies:
+      '@tiptap/core': ^2.0.0
+      '@tiptap/extension-text-style': ^2.0.0
+    dependencies:
+      '@tiptap/core': 2.1.8(@tiptap/pm@2.1.8)
+      '@tiptap/extension-text-style': 2.1.8(@tiptap/core@2.1.8)
+    dev: false
+
   /@tiptap/extension-document@2.1.8(@tiptap/core@2.1.8):
     resolution: {integrity: sha512-mLPZqd5QUv3FKo+5zOaf7dGqZPci7Myr92U1Y6Vw0V+hCRC9Emm3I/xssQYGsWXmXQuyNJ5WRlpXgag3Ae+CkA==}
     peerDependencies:
@@ -889,6 +911,14 @@ packages:
     dependencies:
       '@tiptap/core': 2.1.8(@tiptap/pm@2.1.8)
       '@tiptap/pm': 2.1.8
+    dev: false
+
+  /@tiptap/extension-image@2.1.8(@tiptap/core@2.1.8):
+    resolution: {integrity: sha512-o+vUIYLvYcJHftIMoIukzZZ+fTTfC/gXXvQIYz51p3f1qeYXszD11FbtkaJCgXYj8BcGCO7QuzcCdQg+wyROZw==}
+    peerDependencies:
+      '@tiptap/core': ^2.0.0
+    dependencies:
+      '@tiptap/core': 2.1.8(@tiptap/pm@2.1.8)
     dev: false
 
   /@tiptap/extension-italic@2.1.8(@tiptap/core@2.1.8):
@@ -972,6 +1002,14 @@ packages:
 
   /@tiptap/extension-text@2.1.8(@tiptap/core@2.1.8):
     resolution: {integrity: sha512-ha7oTtUdcJdTVLr8CrxbNMucbAmOBCi83MLxdKZclVf1VpdIVpE3NTojfH2mnZCVMvtPhj4PILQp2hGO95SFig==}
+    peerDependencies:
+      '@tiptap/core': ^2.0.0
+    dependencies:
+      '@tiptap/core': 2.1.8(@tiptap/pm@2.1.8)
+    dev: false
+
+  /@tiptap/extension-underline@2.1.8(@tiptap/core@2.1.8):
+    resolution: {integrity: sha512-vsmdyR8z40xNPZzTSNGLcCMaIf8Tgm9OzsZb1qWILe+PYuv/mIM1LogBbfouEzVpG5sPoxwFTDgxnC+M3Ohgzg==}
     peerDependencies:
       '@tiptap/core': ^2.0.0
     dependencies:

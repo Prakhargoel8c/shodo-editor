@@ -16,6 +16,7 @@
   --stone-700: rgb(68 64 60);
   --stone-800: rgb(41 37 36);
   --stone-900: rgb(28 25 23);
+  --white: rgb(255 255 255);
 }
 
 .dark-theme {
@@ -32,6 +33,7 @@
   --stone-700: rgb(229 232 235);
   --stone-800: rgb(232 234 235);
   --stone-900: rgb(240, 240, 241);
+  --white: rgb(25, 25, 25);
 }
 
 body {

@@ -1,3 +1,4 @@
+import { ThemeMenu } from '@/ui/ThemeMenu';
 import { Github } from '@/ui/icons';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -12,6 +13,7 @@ export default function Home() {
       >
         <Github />
       </Link>
+      <ThemeMenu />
     </div>
   );
 }

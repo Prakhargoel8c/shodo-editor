@@ -15,9 +15,6 @@ export const RichTextEditor: React.FC<RichTextEditorProps> = ({ extensions = [],
     extensions: [...defaultExtensions, ...extensions],
     editorProps: {
       ...editorProps,
-      attributes: {
-        class: `prose-lg prose-stone dark:prose-invert prose-headings:font-title font-default focus:outline-none max-w-full`,
-      },
     },
     autofocus: 'end',
     content,

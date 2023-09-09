@@ -5,6 +5,7 @@ import Placeholder from '@tiptap/extension-placeholder';
 import TiptapUnderline from '@tiptap/extension-underline';
 import TextStyle from '@tiptap/extension-text-style';
 import { Color } from '@tiptap/extension-color';
+import TaskList from '@tiptap/extension-task-list';
 
 export const defaultExtensions = [
   StarterKit.configure({
@@ -47,4 +48,5 @@ export const defaultExtensions = [
     },
     includeChildren: true,
   }),
+  TaskList,
 ];

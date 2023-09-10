@@ -7,7 +7,7 @@ import TextStyle from '@tiptap/extension-text-style';
 import { Color } from '@tiptap/extension-color';
 import TaskList from '@tiptap/extension-task-list';
 import TaskItem from '@tiptap/extension-task-item';
-import SlashCommand from './slashcommands';
+import { SlashCommand } from './SlashCommand';
 
 export const defaultExtensions = [
   StarterKit.configure({

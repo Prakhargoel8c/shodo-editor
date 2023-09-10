@@ -159,7 +159,6 @@ const CommandList = ({ items, command, editor, range }: { items: CommandItemProp
     const navigationKeys = ['ArrowUp', 'ArrowDown', 'Enter'];
     const onKeyDown = (e: KeyboardEvent) => {
       if (!navigationKeys.includes(e.key)) return;
-      e.preventDefault();
       if (e.key === 'ArrowUp') setSelectedIndex((selectedIndex + items.length - 1) % items.length);
       else if (e.key === 'ArrowDown') setSelectedIndex((selectedIndex + 1) % items.length);
       else selectItem(selectedIndex);

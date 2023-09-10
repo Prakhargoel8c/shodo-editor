@@ -2,6 +2,7 @@
 
 import { EditorContent, JSONContent, useEditor, EditorOptions } from '@tiptap/react';
 import { defaultExtensions } from './extensions';
+import { defaultEditorProps } from './defaultEditorProps';
 import { useState } from 'react';
 import './styles.css';
 
@@ -14,9 +15,7 @@ export const RichTextEditor: React.FC<RichTextEditorProps> = ({ extensions = [],
   const [content, setContent] = useState(defaultValue);
   const editor = useEditor({
     extensions: [...defaultExtensions, ...extensions],
-    editorProps: {
-      ...editorProps,
-    },
+    editorProps: { ...defaultEditorProps, ...editorProps },
     autofocus: 'end',
     content,
     onUpdate: ({ editor, transaction }) => {

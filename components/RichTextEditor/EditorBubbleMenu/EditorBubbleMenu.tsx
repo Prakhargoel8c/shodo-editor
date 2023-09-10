@@ -1,6 +1,8 @@
-import React, { FC } from 'react';
+'use client';
+import React, { FC, createContext, useState, useContext } from 'react';
 import { BubbleMenu, BubbleMenuProps, isNodeSelection } from '@tiptap/react';
 import { BoldIcon, ItalicIcon, UnderlineIcon, StrikethroughIcon, CodeIcon, LucideIcon } from 'lucide-react';
+import { NodeSelector } from './NodeSelector';
 
 export interface BubbleMenuItem {
   name: string;
@@ -11,7 +13,10 @@ export interface BubbleMenuItem {
 
 type EditorBubbleMenuProps = Omit<BubbleMenuProps, 'children'>;
 
+const BubbleMenuContext = createContext<BubbleMenuItem[]>([]);
+
 export const EditorBubbleMenu: FC<EditorBubbleMenuProps> = (props) => {
+  const [openMenu, setOpenMenu] = useState<'link' | 'node' | 'color' | null>();
   const { editor } = props;
   const items: BubbleMenuItem[] = [
     {
@@ -54,11 +59,19 @@ export const EditorBubbleMenu: FC<EditorBubbleMenuProps> = (props) => {
     },
     tippyOptions: {
       moveTransition: 'transform 0.15s ease-out',
+      onHidden: () => setOpenMenu(undefined),
     },
   };
   return (
-    <BubbleMenu className="flex w-fit divide-x divide-stone-200 rounded border border-stone-200 bg-white shadow-xl" {...bubbleMenuProps}>
-      <></>
-    </BubbleMenu>
+    <BubbleMenuContext.Provider value={items}>
+      <BubbleMenu className="flex w-fit divide-x divide-stone-200 rounded border border-stone-200 bg-white shadow-xl" {...bubbleMenuProps}>
+        {editor && <NodeSelector isOpen={openMenu === 'node'} setIsOpen={(open: boolean) => setOpenMenu(open ? 'node' : null)} editor={editor} />}
+      </BubbleMenu>
+    </BubbleMenuContext.Provider>
   );
+};
+
+export const useBubbleMenu = () => {
+  if (!useContext(BubbleMenuContext)) throw new Error('useBubbleMenu must be used within a BubbleMenuContext.Provider');
+  return useContext(BubbleMenuContext);
 };

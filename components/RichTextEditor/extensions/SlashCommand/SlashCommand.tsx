@@ -3,6 +3,7 @@ import { Command } from './Command';
 import { CommandList } from './CommandList';
 import { getSuggestionItems } from './getSuggestionItems';
 import tippy from 'tippy.js';
+
 const renderItems = () => {
   let component: ReactRenderer | null = null;
   let popup: any | null = null;

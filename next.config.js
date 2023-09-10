@@ -7,6 +7,11 @@ const nextConfig = {
         destination: 'https://github.com/Prakhargoel8c/notion-clone',
         permanent: true,
       },
+      {
+        source: '/feedback',
+        destination: 'https://github.com/Prakhargoel8c/notion-clone/issues',
+        permanent: true,
+      },
     ];
   },
 };

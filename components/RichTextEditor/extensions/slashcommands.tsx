@@ -1,7 +1,7 @@
 import { Editor, Range, Extension, ReactRenderer } from '@tiptap/react';
 import { ReactNode, useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react';
 import Suggestion from '@tiptap/suggestion';
-import { CheckSquare, Heading1, Heading2, Heading3, List, ListOrdered, TextQuote, Code, Text } from 'lucide-react';
+import { CheckSquare, Heading1, Heading2, Heading3, List, ListOrdered, TextQuote, Code, Text, MessageSquarePlus } from 'lucide-react';
 import tippy from 'tippy.js';
 
 interface CommandItemProps {
@@ -46,6 +46,15 @@ const getSuggestionItems = ({ query }: { query: string }) => {
       icon: <Text size={18} />,
       command: ({ editor, range }: CommandProps) => {
         editor.chain().focus().deleteRange(range).toggleNode('paragraph', 'paragraph').run();
+      },
+    },
+    {
+      title: 'Send Feedback',
+      description: 'Let us know how we can improve.',
+      icon: <MessageSquarePlus size={18} />,
+      command: ({ editor, range }: CommandProps) => {
+        editor.chain().focus().deleteRange(range).run();
+        window.open('/feedback', '_blank');
       },
     },
     {

@@ -1,4 +1,5 @@
 import { ReactNode, useState, useRef, useCallback, useEffect, useLayoutEffect } from 'react';
+import va from '@vercel/analytics';
 
 interface CommandItemProps {
   title: string;
@@ -26,7 +27,9 @@ export const CommandList = ({ items, command, editor, range }: { items: CommandI
   const selectItem = useCallback(
     (index: number) => {
       const item = items[index];
-      if (item) command(item);
+      if (!item) return;
+      command(item);
+      va.track('slash_command', { command: item.title });
     },
     [command, items]
   );

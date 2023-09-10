@@ -11,6 +11,9 @@ dependencies:
   '@tailwindcss/typography':
     specifier: ^0.5.10
     version: 0.5.10(tailwindcss@3.3.3)
+  '@tiptap/extension-bubble-menu':
+    specifier: ^2.1.8
+    version: 2.1.8(@tiptap/core@2.1.8)(@tiptap/pm@2.1.8)
   '@tiptap/extension-color':
     specifier: ^2.1.8
     version: 2.1.8(@tiptap/core@2.1.8)(@tiptap/extension-text-style@2.1.8)

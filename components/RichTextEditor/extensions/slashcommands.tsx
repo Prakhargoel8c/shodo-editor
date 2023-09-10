@@ -1,8 +1,7 @@
-import { Editor, Range, Extension } from '@tiptap/core';
+import { Editor, Range, Extension, ReactRenderer } from '@tiptap/react';
 import { ReactNode, useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react';
 import Suggestion from '@tiptap/suggestion';
 import { CheckSquare, Heading1, Heading2, Heading3, List, ListOrdered, TextQuote, Code, Text } from 'lucide-react';
-import { ReactRenderer } from '@tiptap/react';
 import tippy from 'tippy.js';
 
 interface CommandItemProps {

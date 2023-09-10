@@ -3,6 +3,8 @@ import React, { FC, useState } from 'react';
 import { BubbleMenu, BubbleMenuProps, isNodeSelection } from '@tiptap/react';
 import { BoldIcon, ItalicIcon, UnderlineIcon, StrikethroughIcon, CodeIcon, LucideIcon } from 'lucide-react';
 import { NodeSelector } from './NodeSelector';
+import { ColorSelector } from './ColorSelector';
+import { cn } from '@/lib/utils';
 
 export interface BubbleMenuItem {
   name: string;
@@ -65,6 +67,14 @@ export const EditorBubbleMenu: FC<EditorBubbleMenuProps> = (props) => {
   return (
     <BubbleMenu className="flex w-fit divide-x divide-stone-200 rounded border border-stone-200 bg-white shadow-xl" {...bubbleMenuProps}>
       <NodeSelector isOpen={openMenu === 'node'} setIsOpen={(open: boolean) => setOpenMenu('node')} editor={editor} />
+      <ColorSelector isOpen={openMenu === 'color'} setIsOpen={(open: boolean) => setOpenMenu('color')} editor={editor} />
+      <div className="flex">
+        {items.map((item, index) => (
+          <button key={index} onClick={item.command} className="p-2 text-stone-600 hover:bg-stone-100 active:bg-stone-200" type="button">
+            <item.icon className={cn('h-4 w-4', { 'text-blue-500': item.isActive() })} />
+          </button>
+        ))}
+      </div>
     </BubbleMenu>
   );
 };

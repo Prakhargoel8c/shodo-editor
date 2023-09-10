@@ -4,6 +4,7 @@ import { EditorContent, JSONContent, useEditor, EditorOptions } from '@tiptap/re
 import { defaultExtensions } from './extensions';
 import { defaultEditorProps } from './defaultEditorProps';
 import { useState } from 'react';
+import { EditorBubbleMenu } from './EditorBubbleMenu';
 import './styles.css';
 
 interface RichTextEditorProps extends Partial<Pick<EditorOptions, 'onUpdate' | 'extensions' | 'editorProps'>> {
@@ -30,6 +31,7 @@ export const RichTextEditor: React.FC<RichTextEditorProps> = ({ extensions = [],
         className ?? 'relative min-h-[500px] w-full max-w-screen-lg border-stone-200 bg-white sm:mb-[calc(20vh)] sm:rounded-lg sm:border sm:shadow-lg'
       }
     >
+      {editor && <EditorBubbleMenu editor={editor} />}
       <EditorContent editor={editor} />
     </div>
   );

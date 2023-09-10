@@ -1,7 +1,7 @@
 import { Editor } from '@tiptap/core';
-import React, { Dispatch, SetStateAction } from 'react';
 import { BubbleMenuItem } from './EditorBubbleMenu';
-import { TextIcon, Heading1, Heading2, Heading3, CheckSquare, ListOrdered, TextQuote, Code } from 'lucide-react';
+import { TextIcon, Heading1, Heading2, Heading3, CheckSquare, ListOrdered, TextQuote, Code, ChevronDown, Check } from 'lucide-react';
+import * as Popover from '@radix-ui/react-popover';
 
 interface NodeSelectorProps {
   isOpen: boolean;
@@ -66,5 +66,40 @@ export const NodeSelector: React.FC<NodeSelectorProps> = ({ isOpen, setIsOpen, e
       isActive: () => editor.isActive('codeBlock'),
     },
   ];
-  return <div></div>;
+  const activeItem = items.filter((item) => item.isActive()).pop() ?? { name: 'Multiple' };
+  return (
+    <Popover.Root open={isOpen} onOpenChange={setIsOpen}>
+      <div className="relative h-full">
+        <Popover.Trigger className="flex h-full items-center gap-1 whitespace-nowrap p-2 text-sm font-medium text-stone-600 hover:bg-stone-100 active:bg-stone-200">
+          <span>{activeItem?.name}</span>
+          <ChevronDown className="h-4 w-4" />
+        </Popover.Trigger>
+
+        <Popover.Content
+          align="start"
+          className="z-50 my-1 flex max-h-80 w-48 flex-col overflow-hidden overflow-y-auto rounded border border-stone-200 bg-white p-1 shadow-xl animate-in fade-in slide-in-from-top-1"
+        >
+          {items.map((item, index) => (
+            <button
+              key={index}
+              onClick={() => {
+                item.command();
+                setIsOpen(false);
+              }}
+              className="flex items-center justify-between rounded-sm px-2 py-1 text-sm text-stone-600 hover:bg-stone-100"
+              type="button"
+            >
+              <div className="flex items-center space-x-2">
+                <div className="rounded-sm border border-stone-200 p-1">
+                  <item.icon className="h-3 w-3" />
+                </div>
+                <span>{item.name}</span>
+              </div>
+              {activeItem.name === item.name && <Check className="h-4 w-4" />}
+            </button>
+          ))}
+        </Popover.Content>
+      </div>
+    </Popover.Root>
+  );
 };

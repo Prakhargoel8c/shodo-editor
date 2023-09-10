@@ -3,6 +3,7 @@
 import { EditorContent, JSONContent, useEditor, EditorOptions } from '@tiptap/react';
 import { defaultExtensions } from './extensions';
 import { useState } from 'react';
+import './styles.css';
 
 interface RichTextEditorProps extends Partial<Pick<EditorOptions, 'onUpdate' | 'extensions' | 'editorProps'>> {
   defaultValue?: JSONContent | string;
@@ -27,8 +28,7 @@ export const RichTextEditor: React.FC<RichTextEditorProps> = ({ extensions = [],
     <div
       onClick={() => editor?.chain().focus().run()}
       className={
-        className ??
-        'relative min-h-[500px] w-full max-w-screen-lg border-stone-200 bg-white sm:mb-[calc(20vh)] sm:rounded-lg sm:border sm:shadow-lg p-5'
+        className ?? 'relative min-h-[500px] w-full max-w-screen-lg border-stone-200 bg-white sm:mb-[calc(20vh)] sm:rounded-lg sm:border sm:shadow-lg'
       }
     >
       <EditorContent editor={editor} />

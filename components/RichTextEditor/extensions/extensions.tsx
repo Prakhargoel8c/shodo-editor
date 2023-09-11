@@ -31,6 +31,17 @@ export const defaultExtensions = [
         class: 'mt-4 mb-6 border-t border-stone-300',
       },
     },
+    codeBlock: {
+      HTMLAttributes: {
+        class: 'rounded-sm bg-stone-100 p-5 font-mono font-medium text-stone-800',
+      },
+    },
+    code: {
+      HTMLAttributes: {
+        class: 'rounded-md bg-stone-200 px-1.5 py-1 font-mono font-medium text-stone-900',
+        spellcheck: 'false',
+      },
+    },
     gapcursor: false,
   }),
   TiptapLink.configure({

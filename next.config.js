@@ -4,12 +4,12 @@ const nextConfig = {
     return [
       {
         source: '/github',
-        destination: 'https://github.com/Prakhargoel8c/notion-clone',
+        destination: 'https://github.com/Prakhargoel8c/shodo-ai',
         permanent: true,
       },
       {
         source: '/feedback',
-        destination: 'https://github.com/Prakhargoel8c/notion-clone/issues',
+        destination: 'https://github.com/Prakhargoel8c/shodo-ai/issues',
         permanent: true,
       },
     ];

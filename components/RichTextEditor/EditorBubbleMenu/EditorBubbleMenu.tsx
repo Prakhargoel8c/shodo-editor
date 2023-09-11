@@ -67,9 +67,9 @@ export const EditorBubbleMenu: FC<EditorBubbleMenuProps> = (props) => {
   if (!editor) return null;
   return (
     <BubbleMenu className="flex w-fit divide-x divide-stone-200 rounded border border-stone-200 bg-white shadow-xl" {...bubbleMenuProps}>
-      <NodeSelector isOpen={openMenu === 'node'} setIsOpen={(open: boolean) => setOpenMenu('node')} editor={editor} />
-      <ColorSelector isOpen={openMenu === 'color'} setIsOpen={(open: boolean) => setOpenMenu('color')} editor={editor} />
-      <LinkSelector isOpen={openMenu === 'link'} setIsOpen={(open: boolean) => setOpenMenu('link')} editor={editor} />
+      <NodeSelector isOpen={openMenu === 'node'} setIsOpen={(open: boolean) => setOpenMenu(open ? 'node' : null)} editor={editor} />
+      <ColorSelector isOpen={openMenu === 'color'} setIsOpen={(open: boolean) => setOpenMenu(open ? 'color' : null)} editor={editor} />
+      <LinkSelector isOpen={openMenu === 'link'} setIsOpen={(open: boolean) => setOpenMenu(open ? 'link' : null)} editor={editor} />
       <div className="flex">
         {items.map((item, index) => (
           <button key={index} onClick={item.command} className="p-2 text-stone-600 hover:bg-stone-100 active:bg-stone-200" type="button">

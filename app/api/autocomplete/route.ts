@@ -11,6 +11,9 @@ export async function POST(req: Request) {
   const response = await openai.chat.completions.create({
     model: 'gpt-3.5-turbo',
     stream: true,
+    n: 1,
+    frequency_penalty: 0,
+    presence_penalty: 0,
     messages: [
       {
         role: 'system',

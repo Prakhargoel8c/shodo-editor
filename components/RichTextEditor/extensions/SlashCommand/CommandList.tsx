@@ -1,7 +1,8 @@
 import { ReactNode, useState, useRef, useCallback, useEffect, useLayoutEffect } from 'react';
 import va from '@vercel/analytics';
+import { Editor, Range } from '@tiptap/core';
 
-interface CommandItemProps {
+export interface CommandItemProps {
   title: string;
   description: string;
   icon: ReactNode;
@@ -21,7 +22,7 @@ const updateScrollView = (container: HTMLElement, item: HTMLElement) => {
   }
 };
 
-export const CommandList = ({ items, command, editor, range }: { items: CommandItemProps[]; command: any; editor: any; range: any }) => {
+export const CommandList = ({ items, command, editor, range }: { items: CommandItemProps[]; command: Function; editor: Editor; range: Range }) => {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const commandListContainer = useRef<HTMLDivElement>(null);
   const selectItem = useCallback(

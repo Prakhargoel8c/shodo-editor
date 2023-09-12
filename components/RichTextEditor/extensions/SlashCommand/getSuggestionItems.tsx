@@ -1,3 +1,4 @@
+import Magic from '@/ui/icons/Magic';
 import { Editor, Range } from '@tiptap/react';
 import { MessageSquarePlus, CheckSquare, Heading1, Heading2, Heading3, List, ListOrdered, TextQuote, Code, Text } from 'lucide-react';
 
@@ -7,6 +8,12 @@ interface CommandProps {
 }
 export const getSuggestionItems = ({ query }: { query: string }) => {
   return [
+    {
+      title: 'Continue writing',
+      description: 'Use AI to expand your thoughts.',
+      searchTerms: ['gpt'],
+      icon: <Magic className="w-7" />,
+    },
     {
       title: 'Text',
       description: 'Just start typing with plain text.',

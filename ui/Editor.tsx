@@ -8,7 +8,7 @@ export default function Editor() {
 
   return (
     <div className="relative w-full max-w-screen-lg">
-      <RichTextEditor />
+      <RichTextEditor completionApi="/api/autocomplete" />
     </div>
   );
 }

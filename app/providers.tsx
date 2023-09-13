@@ -1,16 +1,8 @@
 'use client';
 
-import { Dispatch, ReactNode, SetStateAction, createContext } from 'react';
-import { ThemeProvider, useTheme } from 'next-themes';
+import { ReactNode } from 'react';
+import { ThemeProvider } from 'next-themes';
 import { Analytics } from '@vercel/analytics/react';
-
-export const AppContext = createContext<{
-  font: string;
-  setFont: Dispatch<SetStateAction<string>>;
-}>({
-  font: 'Default',
-  setFont: () => {},
-});
 
 export default function Providers({ children }: { children: ReactNode }) {
   return (

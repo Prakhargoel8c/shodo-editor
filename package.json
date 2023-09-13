@@ -39,7 +39,8 @@
     "sonner": "^0.7.1",
     "tailwind-merge": "^1.14.0",
     "tippy.js": "^6.3.7",
-    "typescript": "^5.2.2"
+    "typescript": "^5.2.2",
+    "use-debounce": "^9.0.4"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.10",

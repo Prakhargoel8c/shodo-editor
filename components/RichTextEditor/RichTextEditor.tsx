@@ -3,7 +3,7 @@
 import { EditorContent, JSONContent, useEditor, EditorOptions } from '@tiptap/react';
 import { defaultExtensions } from './extensions';
 import { defaultEditorProps } from './defaultEditorProps';
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext } from 'react';
 import { EditorBubbleMenu } from './EditorBubbleMenu';
 import { useCompletion } from 'ai/react';
 import { toast } from 'sonner';
@@ -22,12 +22,11 @@ interface RichTextEditorProps extends Partial<Pick<EditorOptions, 'onUpdate' | '
 
 export const RichTextEditor: React.FC<RichTextEditorProps> = (props) => {
   const { extensions = [], editorProps = {}, defaultValue, onUpdate, className, completionApi } = props;
-  const [content, setContent] = useState(defaultValue);
   const editor = useEditor({
     extensions: [...defaultExtensions, ...extensions],
     editorProps: { ...defaultEditorProps, ...editorProps },
     autofocus: 'end',
-    content,
+    content: defaultValue,
     onUpdate: (e) => {
       const selection = e.editor.state.selection;
       const lastTwo = getPrevText(e.editor, { chars: 2 });
@@ -36,7 +35,6 @@ export const RichTextEditor: React.FC<RichTextEditorProps> = (props) => {
         complete(getPrevText(e.editor, { chars: 5000 }));
         va.track('Autocomplete Shortcut Used');
       } else {
-        setContent(e.editor.getJSON());
         onUpdate?.(e);
       }
     },

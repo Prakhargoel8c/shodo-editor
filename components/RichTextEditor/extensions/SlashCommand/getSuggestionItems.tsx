@@ -1,4 +1,4 @@
-import Magic from '@/ui/icons/Magic';
+import { Magic } from '@/ui/icons';
 import { Editor, Range } from '@tiptap/react';
 import { MessageSquarePlus, CheckSquare, Heading1, Heading2, Heading3, List, ListOrdered, TextQuote, Code, Text } from 'lucide-react';
 

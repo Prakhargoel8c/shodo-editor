@@ -1,6 +1,7 @@
 import { ReactNode, useState, useRef, useCallback, useEffect, useLayoutEffect } from 'react';
 import { Editor, Range } from '@tiptap/core';
 import { useExecuteCommand } from './useExecuteCommand';
+import { LoadingCircle } from '@/ui/icons';
 
 export interface CommandItemProps {
   title: string;
@@ -25,7 +26,7 @@ const updateScrollView = (container: HTMLElement, item: HTMLElement) => {
 export const CommandList = ({ items, command, editor, range }: { items: CommandItemProps[]; command: Function; editor: Editor; range: Range }) => {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const commandListContainer = useRef<HTMLDivElement>(null);
-  const { executeCommand } = useExecuteCommand(command, editor, range);
+  const { executeCommand, isLoading } = useExecuteCommand(command, editor, range);
   const selectItem = useCallback(
     (index: number) => {
       const item = items[index];
@@ -72,7 +73,9 @@ export const CommandList = ({ items, command, editor, range }: { items: CommandI
             key={index}
             onClick={() => selectItem(index)}
           >
-            <div className="flex h-10 w-10 items-center justify-center rounded-md border border-stone-200 bg-white">{item.icon}</div>
+            <div className="flex h-10 w-10 items-center justify-center rounded-md border border-stone-200 bg-white">
+              {item.title === 'Continue writing' && isLoading ? <LoadingCircle /> : item.icon}
+            </div>
             <div>
               <p className="font-medium">{item.title}</p>
               <p className="text-xs text-stone-500">{item.description}</p>

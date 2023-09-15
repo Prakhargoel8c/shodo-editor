@@ -3,7 +3,7 @@
 import { EditorContent, JSONContent, useEditor, EditorOptions } from '@tiptap/react';
 import { defaultExtensions } from './extensions';
 import { defaultEditorProps } from './defaultEditorProps';
-import { createContext, useContext } from 'react';
+import { createContext, useContext, useEffect, useRef } from 'react';
 import { EditorBubbleMenu } from './EditorBubbleMenu';
 import { useCompletion } from 'ai/react';
 import { toast } from 'sonner';
@@ -30,7 +30,7 @@ export const RichTextEditor: React.FC<RichTextEditorProps> = (props) => {
     onUpdate: (e) => {
       const selection = e.editor.state.selection;
       const lastTwo = getPrevText(e.editor, { chars: 2 });
-      if (lastTwo === '  ' && !isLoading) {
+      if (lastTwo === '++' && !isLoading) {
         e.editor.commands.deleteRange({ from: selection.from - 2, to: selection.from });
         complete(getPrevText(e.editor, { chars: 5000 }));
         va.track('Autocomplete Shortcut Used');
@@ -50,6 +50,14 @@ export const RichTextEditor: React.FC<RichTextEditorProps> = (props) => {
     },
     onError: (err) => toast.error(err.message),
   });
+  const prev = useRef('');
+
+  // Insert chunks of the generated text
+  useEffect(() => {
+    const diff = completion.slice(prev.current.length);
+    prev.current = completion;
+    editor?.commands.insertContent(diff);
+  }, [isLoading, editor, completion]);
   return (
     <AutoCompleteURLContext.Provider value={completion}>
       <div

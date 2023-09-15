@@ -1,6 +1,6 @@
 import { ReactNode, useState, useRef, useCallback, useEffect, useLayoutEffect } from 'react';
-import va from '@vercel/analytics';
 import { Editor, Range } from '@tiptap/core';
+import { useExecuteCommand } from './useExecuteCommand';
 
 export interface CommandItemProps {
   title: string;
@@ -25,14 +25,14 @@ const updateScrollView = (container: HTMLElement, item: HTMLElement) => {
 export const CommandList = ({ items, command, editor, range }: { items: CommandItemProps[]; command: Function; editor: Editor; range: Range }) => {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const commandListContainer = useRef<HTMLDivElement>(null);
+  const { executeCommand } = useExecuteCommand(command, editor, range);
   const selectItem = useCallback(
     (index: number) => {
       const item = items[index];
       if (!item) return;
-      command(item);
-      va.track('slash_command', { command: item.title });
+      executeCommand(item);
     },
-    [command, items]
+    [executeCommand, items]
   );
 
   useEffect(() => {

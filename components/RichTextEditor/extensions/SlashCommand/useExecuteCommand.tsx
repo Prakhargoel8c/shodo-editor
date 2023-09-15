@@ -5,14 +5,12 @@ import { toast } from 'sonner';
 import { Editor, Range } from '@tiptap/core';
 import va from '@vercel/analytics';
 import { getPrevText } from '@/lib/editor';
-import { useAutoCompleteURL } from '../..';
 
 export const useExecuteCommand = (command: Function, editor: Editor, range: Range) => {
-  const autpCompleteURL = useAutoCompleteURL();
   const { complete, isLoading } = useCompletion({
     id: 'shodo',
-    api: autpCompleteURL,
-    onResponse: () => {
+    api: '/api/autocomplete',
+    onResponse: (r) => {
       // ignore the response as it's handled by the the other useCompletion hook which has the same id
       editor.chain().focus().deleteRange(range).run();
     },

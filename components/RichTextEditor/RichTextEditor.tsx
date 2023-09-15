@@ -3,7 +3,7 @@
 import { EditorContent, JSONContent, useEditor, EditorOptions } from '@tiptap/react';
 import { defaultExtensions } from './extensions';
 import { defaultEditorProps } from './defaultEditorProps';
-import { createContext, useContext, useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { EditorBubbleMenu } from './EditorBubbleMenu';
 import { useCompletion } from 'ai/react';
 import { toast } from 'sonner';
@@ -11,8 +11,6 @@ import { getPrevText } from '@/lib/editor';
 import va from '@vercel/analytics';
 
 import './styles.css';
-
-const AutoCompleteURLContext = createContext<string | undefined>(undefined);
 
 interface RichTextEditorProps extends Partial<Pick<EditorOptions, 'onUpdate' | 'extensions' | 'editorProps'>> {
   completionApi: string;
@@ -59,25 +57,14 @@ export const RichTextEditor: React.FC<RichTextEditorProps> = (props) => {
     editor?.commands.insertContent(diff);
   }, [isLoading, editor, completion]);
   return (
-    <AutoCompleteURLContext.Provider value={completion}>
-      <div
-        onClick={() => editor?.chain().focus().run()}
-        className={
-          className ??
-          'relative min-h-[500px] w-full max-w-screen-lg border-stone-200 bg-white sm:mb-[calc(20vh)] sm:rounded-lg sm:border sm:shadow-lg'
-        }
-      >
-        {editor && <EditorBubbleMenu editor={editor} />}
-        <EditorContent editor={editor} />
-      </div>
-    </AutoCompleteURLContext.Provider>
+    <div
+      onClick={() => editor?.chain().focus().run()}
+      className={
+        className ?? 'relative min-h-[500px] w-full max-w-screen-lg border-stone-200 bg-white sm:mb-[calc(20vh)] sm:rounded-lg sm:border sm:shadow-lg'
+      }
+    >
+      {editor && <EditorBubbleMenu editor={editor} />}
+      <EditorContent editor={editor} />
+    </div>
   );
-};
-
-export const useAutoCompleteURL = () => {
-  const context = useContext(AutoCompleteURLContext);
-  if (context === undefined) {
-    throw new Error('useAutoCompleteURL must be used within a AutoCompleteURLProvider');
-  }
-  return context;
 };

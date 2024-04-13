@@ -9,9 +9,15 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@liveblocks/client": "^1.11.1",
+    "@liveblocks/node": "^1.11.1",
+    "@liveblocks/react": "^1.11.1",
+    "@liveblocks/yjs": "^1.11.1",
     "@radix-ui/react-popover": "^1.0.6",
     "@tiptap/core": "^2.1.8",
     "@tiptap/extension-bubble-menu": "^2.1.8",
+    "@tiptap/extension-collaboration": "^2.3.0",
+    "@tiptap/extension-collaboration-cursor": "^2.3.0",
     "@tiptap/extension-color": "^2.1.8",
     "@tiptap/extension-horizontal-rule": "^2.1.8",
     "@tiptap/extension-image": "^2.1.8",
@@ -40,7 +46,8 @@
     "tailwind-merge": "^1.14.0",
     "tippy.js": "^6.3.7",
     "typescript": "^5.2.2",
-    "use-debounce": "^9.0.4"
+    "use-debounce": "^9.0.4",
+    "yjs": "^13.6.14"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.10",

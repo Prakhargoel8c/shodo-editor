@@ -37,7 +37,7 @@ export const RichTextEditor: React.FC<RichTextEditorProps> = (props) => {
       }
     },
   });
-  const { complete, completion, isLoading, stop } = useCompletion({
+  const { complete, completion, isLoading } = useCompletion({
     id: 'shodo',
     api: completionApi,
     onFinish: (_prompt, completion) => {

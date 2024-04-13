@@ -1,4 +1,4 @@
-import Editor from '@/ui/Editor';
+import { CollaborativeEditor } from '@/ui/CollaborativeEditor';
 import { ThemeMenu } from '@/ui/ThemeMenu';
 import { Github } from '@/ui/icons';
 import Link from 'next/link';
@@ -14,7 +14,7 @@ export default function Home() {
         <Github />
       </Link>
       <ThemeMenu />
-      <Editor />
+      <CollaborativeEditor />
     </div>
   );
 }

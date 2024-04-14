@@ -23,9 +23,9 @@ export async function POST(request: NextRequest) {
   const session = liveblocks.prepareSession(user.id, {
     userInfo: user.info,
   });
-
+  const { room, user: userInfo } = await request.json();
+  console.log('userInfo', userInfo);
   // Give the user access to the room
-  const { room } = await request.json();
   session.allow(room, session.FULL_ACCESS);
 
   // Authorize the user and return the result

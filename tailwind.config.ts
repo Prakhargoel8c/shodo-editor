@@ -10,6 +10,8 @@ const config: Config = {
         'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
       colors: {
+        destructive: 'var(--destructive)',
+        'muted-foreground': 'var(--muted-foreground)',
         white: 'var(--white)',
         stone: {
           50: 'var(--stone-50)',

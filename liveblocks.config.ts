@@ -4,7 +4,18 @@ import { createClient } from '@liveblocks/client';
 import { createRoomContext, createLiveblocksContext } from '@liveblocks/react';
 
 const client = createClient({
-  authEndpoint: '/api/liveblocks-auth',
+  authEndpoint: async (room?) => {
+    const response = await fetch('/api/liveblocks-auth', {
+      method: 'POST',
+      headers: {
+        Authentication: 'token',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ room, user: JSON.parse(localStorage.getItem('user') ?? '{}') }),
+    });
+
+    return await response.json(); // should be: { token: "..." }
+  },
   // publicApiKey: 'pk_prod_9K2fWuNV2cOoNV-oQN0iAnxOXh0lfCD_I9b0vhKEIeIrQ0QjwreYpxHs2ujehmjA',
   // throttle: 100,
   async resolveUsers({ userIds }) {

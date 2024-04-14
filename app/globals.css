@@ -18,6 +18,8 @@
   --stone-900: rgb(28 25 23);
   --white: rgb(255 255 255);
   --highlight-blue: #c1ecf9;
+  --destructive: hsl(0 100% 50%);
+  --muted-foreground: hsl(215.4 16.3% 46.9%);
 }
 
 .dark-theme {

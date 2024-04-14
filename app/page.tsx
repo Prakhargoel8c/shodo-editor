@@ -1,4 +1,4 @@
-import { CollaborativeEditor } from '@/ui/CollaborativeEditor';
+import { CollaborativeEditor } from '@/ui/CollabroativeEditor/CollaborativeEditor';
 import { ThemeMenu } from '@/ui/ThemeMenu';
 import { Github } from '@/ui/icons';
 import Link from 'next/link';

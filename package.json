@@ -9,11 +9,14 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@hookform/resolvers": "^3.3.4",
     "@liveblocks/client": "^1.11.1",
     "@liveblocks/node": "^1.11.1",
     "@liveblocks/react": "^1.11.1",
     "@liveblocks/yjs": "^1.11.1",
+    "@radix-ui/react-label": "^2.0.2",
     "@radix-ui/react-popover": "^1.0.6",
+    "@radix-ui/react-slot": "^1.0.2",
     "@tiptap/core": "^2.1.8",
     "@tiptap/extension-bubble-menu": "^2.1.8",
     "@tiptap/extension-collaboration": "^2.3.0",
@@ -34,6 +37,7 @@
     "@vercel/analytics": "^1.0.2",
     "ai": "^2.2.12",
     "autoprefixer": "^10.4.15",
+    "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
     "lucide-react": "^0.274.0",
     "next": "^13.4.19",
@@ -42,12 +46,14 @@
     "postcss": "^8.4.29",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-hook-form": "^7.51.3",
     "sonner": "^0.7.1",
     "tailwind-merge": "^1.14.0",
     "tippy.js": "^6.3.7",
     "typescript": "^5.2.2",
     "use-debounce": "^9.0.4",
-    "yjs": "^13.6.14"
+    "yjs": "^13.6.14",
+    "zod": "3.21.4"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.10",

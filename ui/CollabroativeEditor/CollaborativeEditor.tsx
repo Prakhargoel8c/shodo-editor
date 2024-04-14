@@ -10,7 +10,7 @@ export const CollaborativeEditor = () => {
   const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
   return isUserLoggedIn ? (
     <RoomProvider id="my-test-liveblocks-room" initialPresence={{ cursor: null }}>
-      <ClientSideSuspense fallback="Loading…">
+      <ClientSideSuspense fallback="Loading your session it might take a few seconds...">
         {() => (
           <>
             <Editor />

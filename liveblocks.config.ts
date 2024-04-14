@@ -11,7 +11,7 @@ const client = createClient({
         Authentication: 'token',
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ room, user: JSON.parse(localStorage.getItem('user') ?? '{}') }),
+      body: JSON.stringify({ room, user: JSON.parse(sessionStorage.getItem('user') ?? '{}') }),
     });
 
     return await response.json(); // should be: { token: "..." }

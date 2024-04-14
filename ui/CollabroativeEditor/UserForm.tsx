@@ -18,7 +18,7 @@ interface UserFormProps {
 export const UserForm = ({ setIsUserLoggedIn }: UserFormProps) => {
   const form = useForm<Readonly<FormValues>>({ resolver: zodResolver(formSchema) });
   function onSubmit(values: z.infer<typeof formSchema>) {
-    localStorage.setItem('user', JSON.stringify(values));
+    sessionStorage.setItem('user', JSON.stringify(values));
     setIsUserLoggedIn(true);
   }
   return (
